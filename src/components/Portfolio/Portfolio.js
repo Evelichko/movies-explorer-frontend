@@ -9,7 +9,7 @@ function Portfolio() {
             <nav>
                 <ul className='porfolio__links'>
                     <li className = 'portfolio__link'>
-                        <a href='https://Evelichko.github.io/how-to-learn/' target='blank' className='porfolio__nav-link'>
+                        <a href='https://github.com/Evelichko/how-to-learn' target='blank' className='porfolio__nav-link'>
                             <p className='portfolio__link-text'>Статичный сайт</p> 
                             <img className='portfolio__link-image' src={arrow} alt='стрелка'/>
                          </a>   
@@ -28,7 +28,7 @@ function Portfolio() {
                     <hr className="potrfolio__line"/>
 
                     <li className = 'portfolio__link'>
-                        <a href='https://velichko.nomoredomains.monster' target='blank' className='porfolio__nav-link'>
+                        <a href='https://github.com/Evelichko/react-mesto-api-full-gha' target='blank' className='porfolio__nav-link'>
                             <p className='portfolio__link-text'>Одностраничное приложение</p>
                             <img className='portfolio__link-image' src={arrow} alt='стрелка'/>
                         </a>

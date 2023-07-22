@@ -1,7 +1,8 @@
 .login {
     padding-top: 70px;
     margin: 0 auto;
-    width: 396px;
+    max-width: 396px;
+    width: 100%;
 }
 
 @media screen and (max-width: 768px) {

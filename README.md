@@ -4,7 +4,7 @@
 
 На данном этапе сделана верстка компонентов проекта, адаптирована под различные разрешения экрана. Настроены роуты между страницами.
 
-Ссылка на макет - https://www.figma.com/file/zscQkFTryH4GrVbRKS6lNp/Diploma-(Copy)(1)?type=design&node-id=891%3A3857&mode=design&t=QnNpBbxkysCzAqIZ-1
+Ссылка на макет - https://www.figma.com/file/olcYYgkFFdEPpGjJILKWi7/Diploma-(Copy)?type=design&node-id=932%3A2802&mode=design&t=t7vg23BWHQdNUO9h-1 // была другая ссылка, т.к. генерировала макет с друх разных почт. Случайно закинула не ту
 
 
 
