@@ -10,7 +10,7 @@ function Footer () {
                 <p className="footer__copyright-text">© 2023</p>
                 <div className="footer__copyright-links">
                     <a className="footer__copyright-link" href="https://practicum.yandex.ru" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
-                    <a className="footer__copyright-link" href="https://github.com/Ryabtseva-Ekaterina" target="_blank" rel="noreferrer" >Github</a>
+                    <a className="footer__copyright-link" href="https://github.com/Evelichko" target="_blank" rel="noreferrer" >Github</a>
                 </div>
             </div>
         </footer>     

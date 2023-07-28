@@ -5,30 +5,41 @@
 }
 
 .form__input {
-    width: 396px;
-    height: 46px;;
+    width: 385px;
+    height: 46px;
+    ;
     border-radius: 8px;
     background-color: #2F2F2F;
     border: none;
-    margin: 10px 0 20px;
+    margin: 10px 0 13px;
     font-size: 13px;
     font-weight: normal;
     color: white;
     padding-left: 15px;
 }
 
-.form__input:focus{
+.form__input:focus {
     outline: none;
     border: 0.5px solid #4285F4;
 }
 
 .form__input_error {
     color: #EE3465;
+
+}
+
+@media screen and (max-width: 540px) {
+    .form {
+        margin-top: -7px;
+        max-width: 260px;
+    }
 }
 
 @media screen and (max-width: 540px) {
     .form__input {
-        width: 260px;
+        max-width: 235px;
+        width: 100%;
+        padding-left: 15px;
     }
 }
 
@@ -41,7 +52,7 @@
     font-size: 14px;
     font-weight: 500;
     border-radius: 3px;
-    margin-top: 179px;
+    margin-top: 55px;
     margin-bottom: 16px;
     border: none;
 }
@@ -50,15 +61,19 @@
     background-color: #093989;
 }
 
+.form__button-login {
+    margin-top: 159px;
+}
+
 @media screen and (max-width: 768px) {
     .form__button {
-        margin-top: 69px;
+        margin-top: 49px;
     }
 }
 
 @media screen and (max-width: 540px) {
     .form__button {
-        margin-top: 267px;
+        margin-top: 137px;
         font-size: 12px;
         width: 260px;
     }
@@ -66,7 +81,13 @@
 
 @media screen and (max-width: 768px) {
     .form__button-login {
-        margin-top: 179px;
+        margin-top: 159px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .form__button-login {
+        margin-top: 249px;
     }
 }
 
@@ -74,7 +95,7 @@
     color: #EE3465;
     font-size: 10px;
     font-weight: normal;
-    display:block;
-    margin-top: -10px;
+    display: block;
+    margin-top: -3px;
     margin-bottom: 10px;
 }

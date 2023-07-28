@@ -8,7 +8,7 @@ function Register () {
     return (
         <section className='register'>
             <Link to='/'>
-                <img  className="header__logo" src={logo} alt="лого"/>
+                <img  className="register__logo" src={logo} alt="лого"/>
             </Link>
 
             <h1 className='register__title'>Добро пожаловать!</h1>
@@ -16,11 +16,11 @@ function Register () {
             <Form>
                 <label className = 'form__label' for='name'> Имя </label>
                 <input className='form__input' type='text' required name = 'name' id='name' minLength='2' maxLength='30'/>
-                <span className='form__input-error-text'>Что-то пошло не так...</span>
+                {/* <span className='form__input-error-text'>Что-то пошло не так...</span> */}
 
                 <label className = 'form__label' for='email'> E-mail </label>
                 <input className='form__input' type='email' required name = 'email' id='email'/>
-                <span className='form__input-error-text'>Что-то пошло не так...</span>
+                {/* <span className='form__input-error-text'>Что-то пошло не так...</span> */}
                 
 
                 <label className = 'form__label' for='password'> Пароль </label>

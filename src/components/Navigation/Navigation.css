@@ -18,9 +18,10 @@
 }
 
 .navigation__container {
-    width:676px;
+    width:650px;
     display: flex;
     justify-content: space-between;
+    margin-left: -660px;
 }
 
 @media screen and (max-width: 1040px) {
@@ -100,6 +101,7 @@
     cursor: pointer;
     border-radius: 6px;
     text-decoration: none;
+    margin-right: -40px;
 }
 
 

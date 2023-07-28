@@ -12,6 +12,7 @@
     font-size: 13px;
     font-weight: 500;
     cursor:pointer;
+    text-decoration: underline;
 }
 
 .navTab__link:hover {

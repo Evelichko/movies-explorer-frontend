@@ -1,5 +1,5 @@
 .movieCardList{
-    margin: 70px 70px 30px;
+    margin: 110px 70px 30px;
 }
 
 @media screen  and (max-width: 768px) {
@@ -21,17 +21,19 @@
     display: flex;
     flex-wrap: wrap;
     gap: 32px 20px;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 @media screen  and (max-width: 768px) {
     .movieCardList__elements{
         gap: 36px 30px;
+        margin-top:125px;
     }
 }
 
 @media screen  and (max-width: 540px) {
     .movieCardList__elements{
         gap: 20px 0;
+        margin-top: 90px;
     }
 }

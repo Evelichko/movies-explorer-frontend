@@ -1,5 +1,5 @@
 .portfolio {
-    margin: 0 70px;
+    margin: 0 70px 90px;
 }
 
 @media screen  and (max-width: 768px) {
@@ -17,6 +17,13 @@
 .portfolio__line {
     height: 0;
     color: #424242;
+    margin-bottom: 35px;
+}
+
+@media screen  and (max-width: 540px) {
+    .portfolio__line {
+        margin-bottom: 10px;
+    }
 }
 
 .portfolio__title{
@@ -31,20 +38,20 @@
     }
 }
 
-.porfolio__links {
+.portfolio__links {
     text-decoration: none;
     list-style: none;
     padding: 0;
-    margin-top: 50px;
+    margin-top: 58px;
 }
 
 @media screen  and (max-width: 540px) {
     .portfolio__links {
-        margin-top: 40px;
+        margin-top: 45px;
     }
 }
 
-.porfolio__nav-link {
+.portfolio__nav-link {
     text-decoration: none;
     color: white;
     display: flex;
@@ -59,7 +66,8 @@
     font-size: 30px;
     font-weight: normal;
     margin: 0;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
 }
 
 .portfolio__link:hover {
@@ -80,21 +88,24 @@
 }
 
 .portfolio__link-image {
-    width: 29px;
-    height: 29px;
+    width: 19px;
+    height: 19px;
     object-fit: cover;
+    margin-top: 5px;
 }
 
 @media screen  and (max-width: 768px) {
     .portfolio__link-image {
-        width: 27px;
-        height: 27px;
+        margin-top: 10px;
+        margin-right: 10px;
+        width: 17px;
+        height: 17px;
     }
 }
 
 @media screen  and (max-width: 540px) {
     .portfolio__link-image {
-        width: 18px;
-        height: 18px;
+        width: 8px;
+        height: 8px;
     }
 }

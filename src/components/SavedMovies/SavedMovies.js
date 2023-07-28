@@ -1,14 +1,16 @@
 import React from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import SearchForm from '../SearchForm/SearchForm.js';
+import savedMovies from '../../utils/savedMovies.js';
 
-function SavedMovies () {
+
+function SavedMovies() {
     return (
         <section>
 
             <SearchForm />
 
-            <MoviesCardList  className='moviesCard__deleteButton'/>
+            <MoviesCardList className='moviesCard__deleteButton' elements={savedMovies} />
 
         </section>
     );

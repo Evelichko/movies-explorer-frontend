@@ -8,7 +8,7 @@ function Login () {
     return (
         <section className='login'>
             <Link to='/'>
-                <img  className="header__logo" src={logo} alt="лого"/>
+                <img  className="login__logo" src={logo} alt="лого"/>
             </Link>
 
             <h1 className='login__title'>Рады видеть!</h1>
@@ -16,11 +16,11 @@ function Login () {
             <Form>
                 <label className = 'form__label' for='email'> E-mail </label>
                 <input className='form__input' type='email' required name = 'email' id='email'/>
-                <span className='form__input-error-text'>Что-то пошло не так...</span>
+                {/* <span className='form__input-error-text'>Что-то пошло не так...</span> */}
 
                 <label className = 'form__label' for='password'> Пароль </label>
                 <input className='form__input' type='password' required name = 'password' id='password'/>
-                <span className='form__input-error-text'>Что-то пошло не так...</span>
+                {/* <span className='form__input-error-text'>Что-то пошло не так...</span> */}
                 <button className='form__button form__button-login' type='submit'>Войти</button>
 
             </Form>

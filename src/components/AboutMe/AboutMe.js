@@ -5,8 +5,8 @@ import foto from '../../images/avatar_img1.jpg';
 function AboutMe () {
     return (
         <section className='aboutMe' id='aboutMe'>
-            <h3 className='main__section-title'>Студент</h3>
-            <hr className="main__line"></hr>
+            <h3 className='section-title'>Студент</h3>
+            <hr className="section-line aboutMe__line"></hr>
 
             <div className='aboutMe__content'>
                 <div className='aboutMe__textContent'>

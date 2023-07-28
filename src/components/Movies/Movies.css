@@ -1,12 +1,13 @@
-.movies__moreMovies {
+.movies {
     display: flex;
     justify-content: center;
+    margin-bottom: 19px;
 }
 
-.movies__moreMovies-button {
+.movies__button {
     width: 320px;
     height: 36px;
-    margin: 50px auto 80px;
+    margin: 50px auto -120px;
     background-color: #202020;
     border: 1px solid #424242;
     font-size: 12px;
@@ -16,14 +17,19 @@
     border-radius: 10px;
 }
 
-.movies__moreMovies-button:hover {
+.movies__button:hover {
     background-color:#4285F4;
     color: black;
 }
 
+@media screen and (max-width: 768px) {
+    .movies__button {
+margin-bottom: -120px;    }
+}
 
 @media screen and (max-width: 540px) {
-    .movies__moreMovies-button {
+    .movies__button {
         width: 240px;
+        margin-bottom: -65px;
     }
 }

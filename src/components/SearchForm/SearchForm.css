@@ -4,7 +4,7 @@
 
 @media screen and (max-width: 768px) {
     .searchForm {
-        margin: 80px 30px 0;
+        margin: 75px 30px 0;
     }
 }
 
@@ -39,6 +39,7 @@
     .searchForm__input {
         font-size: 18px;
         padding-bottom: 15px;
+        margin-top: -17px;
     }
 }
 
@@ -50,14 +51,23 @@
     border: none;
     cursor: pointer;
     padding: 0;
+    margin-right: -20px;
     position:absolute;
     right: 0;
     bottom: 13px;
 }
 
+@media screen and (max-width: 768px) {
+    .searchForm__button {
+        bottom: 15px;
+        margin-right: -10px;
+    }
+}
+
 @media screen and (max-width: 540px) {
     .searchForm__button {
         bottom: 15px;
+        margin-right: 5px;
     }
 }
 
