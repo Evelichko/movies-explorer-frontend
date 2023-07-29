@@ -1,5 +1,5 @@
 .searchForm {
-    margin: 70px 70px 0;
+    margin: 65px 70px 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -51,7 +51,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    margin-right: -20px;
+    margin-right: 1px;
     position:absolute;
     right: 0;
     bottom: 13px;

@@ -6,6 +6,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
 }
 
 @media screen  and (max-width: 768px) {
@@ -15,7 +16,7 @@
 }
 
 @media screen  and (max-width: 540px) {
-    .movieCard{
+    .moviesCard{
         width: 300px;
     }
 }
@@ -45,6 +46,7 @@
 
 .moviesCard__information{
     padding-left: 12px;
+    margin-top: 4px;
 }
 
 .moviesCard__title {
@@ -72,7 +74,7 @@
 }
 
 
-.moviesCard__button:focus {
+.moviesCard__button-liked {
     background-color: #2BE080;
     cursor: pointer;
     width: 16px;

@@ -1,8 +1,8 @@
 .filterCheckBox {
     display: flex;
     justify-content: flex-start;
-    gap: 16px;
-    margin: 32px 0 47px;
+    gap: 14px;
+    margin: 33px 0 47px;
 }
 
 @media screen and (max-width: 768px) {

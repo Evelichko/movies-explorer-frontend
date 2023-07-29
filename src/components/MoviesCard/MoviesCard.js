@@ -3,6 +3,11 @@ import './MoviesCard.css';
 
 function MoviesCard (props) {
 
+    function handleSaveClick(evt) {
+        evt.preventDefault();
+        evt.target.classList.toggle('moviesCard__button-liked');
+    }
+
 
     return (
         <li className='moviesCard'>
@@ -12,7 +17,7 @@ function MoviesCard (props) {
                 <p className='moviesCard__description'>{props.duration}</p>
             </div>
 
-            <button className= {props.className} type='submit'></button> 
+            <button className= {props.className} onClick={handleSaveClick} type='submit'></button> 
            
         </li>
     );
