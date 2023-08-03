@@ -1,23 +1,20 @@
 import React from 'react';
 import './MovieCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard.js';
-import movies from '../../utils/movies';
 
-
-function MoviesCardList (props) {
+function MoviesCardList(props) {
 
     return (
         <section className='movieCardList'>
-            <ul className='movieCardList__elements'>
+            <ul className='movieCardList__movies'>
 
                 {props.elements.map((movie) => (
-                    <MoviesCard 
-                        image = {movie.image}
-                        description = {movie.description}
-                        duration = {movie.duration}
-                        className = {props.className}>
-                      </MoviesCard>
-                    
+                    <MoviesCard
+                        image={movie.image}
+                        description={movie.description}
+                        duration={movie.duration}
+                        className={props.className}>
+                    </MoviesCard>
                 ))}
 
             </ul>

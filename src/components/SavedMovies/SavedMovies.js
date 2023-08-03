@@ -1,7 +1,7 @@
 import React from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
-import SearchForm from '../SearchForm/SearchForm.js';
 import savedMovies from '../../utils/savedMovies.js';
+import SearchForm from '../SearchForm/SearchForm.js';
 
 
 function SavedMovies() {
@@ -10,7 +10,7 @@ function SavedMovies() {
 
             <SearchForm />
 
-            <MoviesCardList className='moviesCard__deleteButton' elements={savedMovies} />
+            <MoviesCardList className='moviesCard__delete' elements={savedMovies} />
 
         </section>
     );

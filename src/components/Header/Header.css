@@ -1,23 +1,24 @@
 .header {
     position: relative;
     display: flex;
+    padding: 18px 70px 18px;
     justify-content: space-between;
-    padding: 18px 70px 18px 70px;
+
 }
 
 @media screen and (max-width: 768px) {
     .header {
-        padding: 18px 30px 18px 30px;
+        padding: 18px 30px 18px;
     }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 545px) {
     .header {
-        padding: 18px 14px 18px 14px;
+       padding: 18px 14px 18px;
     }
 }
 
-.header-main {
+.header-front {
     background-color: #073042;
 }
 
@@ -25,23 +26,17 @@
     width: 38px;
     height: 38px;
     margin-left: 0px;
+    margin-top: -4px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 545px) {
     .header__logo {
-        margin-left: 0;
+        margin-top: -3px;
+        margin-left: -3px;
     }
 }
 
-@media screen and (max-width: 540px) {
-    .header__logo {
-        margin-top:-5px;
-    }
-}
-
-
-
-.header__sign-button {
+.header__entrance-button {
     width: 76px;
     height: 32px;
     border: none;
@@ -55,7 +50,7 @@
 }
 
 @media screen and (max-width: 540px) {
-    .header__sign-button {
+    .header__entrance-button {
         font-size: 10px;
         width: 54px;
         height: 26px;
@@ -63,54 +58,51 @@
 }
 
 
-.header__sign-button:hover {
-    background-color: #4285F4;
+.header__entrance-button:hover {
+    opacity: 0.8;
 }
 
-.header__sign-link {
+.header__entrance-link {
     color: white;
     text-decoration: none;
-    font-size: 12px;
-    font-weight: 500;
     padding-top: 7px;
     padding-right: 30px;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 @media screen and (max-width: 540px) {
-    .header__sign-link {
+    .header__entrance-link {
         font-size: 10px;
         margin-right: -15px;
     }
 }
 
-.header__sign-link:hover {
-    color: #4285F4;
+.header__entrance-link:hover {
+    opacity: 0.8;
 }
 
-.header__profile-burger {
-    background-image: url('../../images/burger.svg');
+.header__burger {
+    background-image: url('../../images/burger-icon.svg');
     width: 44px;
     height: 44px;
-    background-color: inherit;
+    background-color: white;
     border: none;
     cursor: pointer;
-}
-
-.header__profile-burger:hover {
-    background-image: url('../../images/burger-activ.svg');
+    margin-top: -6px;
+    margin-right: -3px;
 }
 
 @media screen and (min-width: 769px) {
-    .header__profile-burger {
+    .header__burger {
         display: none;
     }
 }
 
-@media screen and (max-width: 540px) {
-    .header__profile-burger {
+@media screen and (max-width: 544px) {
+    .header__burger {
         width: 30px;
         height: 33px;
-        margin-right: 10px;
-        margin-top: -5px;
+        margin-right: 15px;
     }
 }

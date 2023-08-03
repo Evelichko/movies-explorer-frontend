@@ -1,87 +1,93 @@
-.aboutMe {
-    margin: 110px 70px 80px;
+.aboutMeInfo {
+    padding: 90px 70px 80px;
+    background-color: #FFF;
 }
 
-@media screen  and (max-width: 768px) {
-    .aboutMe {
-        margin: 95px 50px 90px;
+@media screen and (max-width: 768px) {
+    .aboutMeInfo {
+        padding: 69px 50px 90px;
     }
 }
 
-@media screen  and (max-width: 540px) {
-    .aboutMe {
-        margin: 50px 14px 70px;
+@media screen and (max-width: 540px) {
+    .aboutMeInfo {
+        padding: 20px 14px 70px;
     }
 }
 
+.aboutMeInfo__title {
+    color: black;
+}
 
-.aboutMe__content{
+
+.aboutMeInfo__description {
     margin-top: 66px;
     display: flex;
     justify-content: space-between;
     gap: 270px;
+    color: black;
 }
 
-@media screen  and (max-width: 1000px) {
-    .aboutMe__content {
+@media screen and (max-width: 1000px) {
+    .aboutMeInfo__description {
         gap: 120px;
     }
 }
 
-@media screen  and (max-width: 768px) {
-    .aboutMe__content {
+@media screen and (max-width: 768px) {
+    .aboutMeInfo__description {
         gap: 49px;
+        margin-top: 61px;
     }
 }
 
-@media screen  and (max-width: 630px) {
-    .aboutMe__content {
+@media screen and (max-width: 630px) {
+    .aboutMeInfo__description {
         flex-direction: column-reverse;
         align-items: flex-start;
         gap: 40px;
     }
 }
 
-
-.aboutMe__title {
+.aboutMeInfo__myName {
     font-size: 50px;
     font-weight: normal;
     margin: 0;
 }
 
-@media screen  and (max-width: 768px) {
-    .aboutMe__title {
+@media screen and (max-width: 768px) {
+    .aboutMeInfo__myName {
         font-size: 40px;
     }
 }
 
-@media screen  and (max-width: 630px) {
-    .aboutMe__title {
+@media screen and (max-width: 630px) {
+    .aboutMeInfo__myName {
         font-size: 30px;
-        margin-top: -5px;
+        margin-top: 3px;
     }
 }
 
-.aboutMe__description{
+.aboutMeInfo__shortInfo {
     font-size: 18px;
     font-weight: 500;
     margin: 18px 0 26px;
 }
 
-@media screen  and (max-width: 768px) {
-    .aboutMe__description {
+@media screen and (max-width: 768px) {
+    .aboutMeInfo__shortInfo {
         font-size: 12px;
     }
 }
 
-@media screen  and (max-width: 630px) {
-    .aboutMe__description {
+@media screen and (max-width: 630px) {
+    .aboutMeInfo__shortInfo {
         font-size: 11px;
         margin: 20px 0;
     }
 }
 
-.aboutMe__text {
+.aboutMeInfo__story {
     max-width: 600px;
     font-size: 14px;
     font-weight: normal;
@@ -89,50 +95,53 @@
     margin-bottom: 40px;
 }
 
-@media screen  and (max-width: 768px) {
-    .aboutMe__text {
+@media screen and (max-width: 768px) {
+    .aboutMeInfo__story {
         font-size: 12px;
-        margin-bottom: 23px;
+        margin-bottom: 32px;
+        margin-top: -5px;
     }
 }
 
-@media screen  and (max-width: 630px) {
-    .aboutMe__text {
+@media screen and (max-width: 630px) {
+    .aboutMeInfo__story {
         font-size: 11px;
         margin-bottom: 40px;
+        margin-top: 14px;
     }
 }
 
-.aboutMe__link{
+.aboutMeInfo__githubLink {
     font-size: 14px;
     font-weight: 500;
-    color: white;
+    color: black;
     text-decoration: none;
-    margin-top:30px;
+    margin-top: 30px;
 }
 
-.aboutMe__link:hover{
-    color: #4285F4;
+.aboutMeInfo__githubLink:hover {
+    opacity: 0.8;
 }
 
 
-.aboutMe__foto {
+.aboutMeInfo__myFoto {
     width: 270px;
-    height: 350px;
+    height: 327px;
     object-fit: cover;
     border-radius: 10px;
 }
 
-@media screen  and (max-width: 768px) {
-    .aboutMe__foto {
+@media screen and (max-width: 768px) {
+    .aboutMeInfo__myFoto {
         max-width: 255px;
         width: 100%;
-        height: 307px;;
+        height: 307px;
+        margin-top: 3px;
     }
 }
 
-@media screen  and (max-width: 630px) {
-    .aboutMe__foto {
+@media screen and (max-width: 630px) {
+    .aboutMeInfo__myFoto {
         max-width: 292px;
         width: 100%;
         height: 352px;

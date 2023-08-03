@@ -1,15 +1,15 @@
 import React from 'react';
 import './Form.css';
 
-function Form (props) {
+function Form(props) {
     return (
         <section>
-        <form className='form'>
+            <form className='form'>
 
-            { props.children }
-    
-        </form>
-    </section>
+                {props.children}
+
+            </form>
+        </section>
     )
 }
 

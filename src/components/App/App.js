@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Switch, Link, useHistory } from 'react-router-dom';
+import { Route, useHistory, Switch, Link } from 'react-router-dom';
 import './App.css';
 
 import NotFound from '../NotFound/NotFound.js';
@@ -17,84 +17,84 @@ function App() {
 
     const history = useHistory();
 
-    const [isNavigationOpen, setIsNavigationOpen] = useState(false);
+    const [isNavigationMenuOpen, setIsNavigationMenuOpen] = useState(false);
 
     function onClose() {
-        setIsNavigationOpen(false);
+        setIsNavigationMenuOpen(false);
     }
 
 
     return (
         <div className="page">
-                <Switch>
-                    <Route exact={true} path='/'>
-                        <Header className=" header header-main">
-                            <div className="header__sign">
-                                <Link to='/signup' className='header__sign-link'>Регистрация</Link>
-                                <button className="header__sign-button" onClick={() => history.push('./signin')} type='button'>Войти</button>
-                            </div>
-                        </Header>
+            <Switch>
+                <Route exact={true} path='/'>
+                    <Header className=" header header-front">
+                        <div className="header__entrance">
+                            <Link to='/signup' className='header__entrance-link'>Регистрация</Link>
+                            <button className="header__entrance-button" onClick={() => history.push('./signin')} type='button'>Войти</button>
+                        </div>
+                    </Header>
 
-                        <Main />
+                    <Main />
 
-                        <Footer />
-                    </Route>
+                    <Footer />
+                </Route>
 
-                    <Route exact={true} path='/movies'>
+                <Route exact={true} path='/movies'>
 
-                        <Header className='header'>
-                            <Navigation
-                                isOpen={isNavigationOpen}
-                                onClose={onClose} />
-                            <button className='header__profile-burger' type='button' onClick={() => setIsNavigationOpen(true)} />
-                        </Header>
+                    <Header className='header'>
+                        <Navigation
+                            isOpen={isNavigationMenuOpen}
+                            onClose={onClose} />
+                        <button className='header__burger' type='button' onClick={() => setIsNavigationMenuOpen(true)} />
+                    </Header>
 
-                        <Movies />
+                    <Movies />
 
-                        <Footer />
-                    </Route>
+                    <Footer />
+                </Route>
 
-                    <Route exact={true} path='/saved_movies'>
-                        <Header className='header'>
-                            <Navigation
-                                isOpen={isNavigationOpen}
-                                onClose={onClose} />
+                <Route exact={true} path='/saved_movies'>
+                    <Header className='header'>
+                        <Navigation
+                            isOpen={isNavigationMenuOpen}
+                            onClose={onClose} />
 
-                            <button className='header__profile-burger' onClick={() => setIsNavigationOpen(true)} type='button' />
-                        </Header>
+                        <button className='header__burger' onClick={() => setIsNavigationMenuOpen(true)} type='button' />
+                    </Header>
 
-                        <SavedMovies />
+                    <SavedMovies />
 
-                        <Footer />
-                    </Route>
+                    <Footer />
+                </Route>
 
-                    <Route exact={true} path='/profile'>
+                <Route exact={true} path='/profile'>
 
-                        <Header className='header'>
-                            <Navigation
-                                isOpen={isNavigationOpen}
-                                onClose={onClose} />
+                    <Header className='header'>
+                        <Navigation
+                            isOpen={isNavigationMenuOpen}
+                            onClose={onClose} />
 
-                            <button className='header__profile-burger' onClick={() => setIsNavigationOpen(true)} type='button' />
-                        </Header>
+                        <button className='header__burger' onClick={() => setIsNavigationMenuOpen(true)} type='button' />
+                    </Header>
 
-                        <Profile />
-                    </Route>
+                    <Profile />
+                </Route>
 
-                    <Route path='/signup'>
-                        <Register />
-                    </Route>
+                <Route path='/signup'>
+                    <Register />
+                </Route>
 
-                    <Route path='/signin'>
-                        <Login />
-                    </Route>
+                <Route path='/signin'>
+                    <Login />
+                </Route>
 
-                    <Route exact={true} path='*'>
-                        <NotFound />
-                    </Route>
-                </Switch>
+                <Route exact={true} path='*'>
+                    <NotFound />
+                </Route>
+            </Switch>
 
-            </div>
+        </div>
     )
 }
 

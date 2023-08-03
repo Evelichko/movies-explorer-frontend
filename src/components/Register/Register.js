@@ -1,37 +1,34 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import Form from '../Form/Form.js';
-import logo from '../../images/logo.svg';
-import './Register.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import Form from "../Form/Form.js";
+import logo from "../../images/logo.svg";
+import "./Register.css";
 
-function Register () {
+function Register() {
     return (
-        <section className='register'>
-            <Link to='/'>
-                <img  className="register__logo" src={logo} alt="лого"/>
+        <section className="register">
+            <Link to="/">
+                <img className="register__icon" src={logo} alt="логотип" />
             </Link>
 
-            <h1 className='register__title'>Добро пожаловать!</h1>
+            <h1 className="register__welcomeMessage">Добро пожаловать!</h1>
 
             <Form>
-                <label className = 'form__label' for='name'> Имя </label>
-                <input className='form__input' type='text' required name = 'name' id='name' minLength='2' maxLength='30'/>
-                {/* <span className='form__input-error-text'>Что-то пошло не так...</span> */}
+                <label className="form__label" for="name">Имя</label>
+                <input className="form__input" type="text" required name="name" id="name" minLength="2" maxLength="30" />
 
-                <label className = 'form__label' for='email'> E-mail </label>
-                <input className='form__input' type='email' required name = 'email' id='email'/>
-                {/* <span className='form__input-error-text'>Что-то пошло не так...</span> */}
-                
+                <label className="form__label" for="email">E-mail</label>
+                <input className="form__input" type="email" required name="email" id="email" />
 
-                <label className = 'form__label' for='password'> Пароль </label>
-                <input className='form__input' type='password' required name = 'password' id='password'/>
-                <span className='form__input-error-text'>Что-то пошло не так...</span>
-                
-                <button className='form__button' type='submit'>Зарегистрироваться</button>
+                <label className="form__label" for="password"> Пароль </label>
+                <input className="form__input" type="password" required name="password" id="password" />
+                <span className="form__input-error">Что-то пошло не так...</span>
+
+                <button className="form__button" type="submit">Зарегистрироваться</button>
             </Form>
 
-            <p className="register__text">Уже зарегистрированы? 
-                <Link to='signin' className="register__link"> Войти</Link>
+            <p className="register__signin">Уже зарегистрированы?
+                <Link to="signin" className="register__link"> Войти</Link>
             </p>
         </section>
     )

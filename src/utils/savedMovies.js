@@ -1,6 +1,6 @@
 import movieImage1 from '../images/movie1.jpg';
-import movieImage2 from '../images/movie2.jpg';
-import movieImage3 from '../images/movie3.jpg';
+import movieImage2 from '../images/movie22.jpg';
+import movieImage3 from '../images/movie33.jpg';
 
 const savedMovies = [
     {

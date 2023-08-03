@@ -1,38 +1,41 @@
-.movieCardList{
-    margin: 112px 70px 30px;
+.movieCardList {
+    margin: 117px 70px 30px;
 }
 
-@media screen  and (max-width: 768px) {
-    .movieCardList{
-        margin: 70px 30px 30px;
+@media screen and (max-width: 768px) {
+    .movieCardList {
+        margin-top: 70px;
+        margin-bottom: 30px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 }
 
-@media screen  and (max-width: 540px) {
-    .movieCardList{
-        margin: 40px 10px 30px;
+@media screen and (max-width: 530px) {
+    .movieCardList {
+        margin: 40px 10px 90px;
     }
 }
 
-.movieCardList__elements {
+.movieCardList__movies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23px 20px;
+    justify-content: flex-start;
     margin: 0;
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px 20px;
-    justify-content: flex-start;
 }
 
-@media screen  and (max-width: 768px) {
-    .movieCardList__elements{
-        gap: 36px 30px;
-        margin-top:125px;
+@media screen and (max-width: 768px) {
+    .movieCardList__movies  {
+        gap: 16px 30px;
+        margin-top: 125px;
     }
 }
 
-@media screen  and (max-width: 540px) {
-    .movieCardList__elements{
+@media screen and (max-width: 530px) {
+    .movieCardList__movies  {
         gap: 20px 0;
         margin-top: 90px;
     }

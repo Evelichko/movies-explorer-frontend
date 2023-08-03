@@ -8,7 +8,7 @@ function Header (props) {
     return (
         <header className={props.className}>
             <Link to='/'>
-                <img  className="header__logo" src={logo} alt="лого"/>
+                <img  className="header__logo" src={logo} alt="логотип"/>
             </Link>
             
             {props.children}

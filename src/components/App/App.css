@@ -1,14 +1,11 @@
 .page {
-    background-color: #202020;
+    background-color: #FFF;
+    position: relative;
     box-sizing: border-box;
-    /* min-height: 100vh; */
     height: 100%;
     font-family: 'Inter', sans-serif;
-    color: white;
-    -webkit-font-smoothing: antialiased;
-     max-width: 1280px;
-    margin: 0 auto;
-    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;  
 }
 
 @media screen and (max-width: 768px) {
@@ -19,6 +16,6 @@
 
 .page__content {
     max-width: 1280px;
-    margin: 0 auto;
     position: relative;
+    margin: 0 auto;
 }

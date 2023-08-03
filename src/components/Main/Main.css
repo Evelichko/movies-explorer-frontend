@@ -8,18 +8,6 @@
     margin: 0 70px;
 }
 
-/* @media screen and (max-width: 768px) {
-    .section-line_techs {
-        margin: 0 50px;
-    }
-} */
-
-/* @media screen and (max-width: 540px) {
-    .section-line_techs {
-        margin: 0 18px;
-    }
-} */
-
 .section-title {
     font-size: 22px;
     font-weight: normal;
@@ -32,7 +20,7 @@
     margin-bottom: 0px;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 535px) {
     .section-title {
         font-size: 18px;
         padding-bottom: 28px;
@@ -40,7 +28,7 @@
 }
 
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 535px) {
     .section-title_techs {
         margin-left: 0px;
     }
