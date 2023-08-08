@@ -3,13 +3,13 @@ import './Form.css';
 
 function Form(props) {
     return (
-        <section>
+        <div>
             <form className='form'>
 
                 {props.children}
 
             </form>
-        </section>
+        </div>
     )
 }
 

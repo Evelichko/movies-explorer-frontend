@@ -11,15 +11,15 @@ function MoviesCard(props) {
 
     return (
         <li className='moviesCard'>
-            <img className='moviesCard__image' src={props.image} alt={props.description} />
-            <div className='moviesCard__information'>
+            <img className='moviesCard__card' src={props.image} alt={props.description} />
+            <div className='moviesCard__description'>
                 <h2 className='moviesCard__title'>{props.description}</h2>
                 <div className='moviesCard__button-container'>
                     <button className={props.className} onClick={handleSaveClick} type='submit'></button>
                 </div>
             </div>
             <hr className='moviesCard__line'></hr>
-            <p className='moviesCard__description'>{props.duration}</p>
+            <p className='moviesCard__duration'>{props.duration}</p>
         </li>
     );
 }

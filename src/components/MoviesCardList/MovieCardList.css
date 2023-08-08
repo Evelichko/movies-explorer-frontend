@@ -21,21 +21,21 @@
     display: flex;
     flex-wrap: wrap;
     gap: 23px 20px;
-    justify-content: flex-start;
+    justify-content: center;
     margin: 0;
     list-style: none;
     padding: 0;
 }
 
 @media screen and (max-width: 768px) {
-    .movieCardList__movies  {
+    .movieCardList__movies {
         gap: 16px 30px;
         margin-top: 125px;
     }
 }
 
 @media screen and (max-width: 530px) {
-    .movieCardList__movies  {
+    .movieCardList__movies {
         gap: 20px 0;
         margin-top: 90px;
     }

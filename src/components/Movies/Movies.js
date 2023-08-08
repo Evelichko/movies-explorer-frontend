@@ -2,25 +2,25 @@ import React from 'react';
 import './Movies.css';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import Preloader from '../Preloader/Preloader';
-import SearchForm from '../SearchForm/SearchForm';
+import SearchForm from '../SearchForm/SearchString';
 import movies from '../../utils/movies.js';
 
-function Movies () {
-    
+function Movies() {
+
     return (
-        <section>
-           
+        <div>
+
             <SearchForm />
 
             <Preloader />
 
-            <MoviesCardList className={'moviesCard__button'} elements={movies}/>
+            <MoviesCardList className={'moviesCard__button'} elements={movies} />
 
-            <section className='movies'>
+            <div className='movies'>
                 <button className='movies__button' type='button'>Ещё</button>
-            </section>
+            </div>
 
-        </section>
+        </div>
     );
 }
 

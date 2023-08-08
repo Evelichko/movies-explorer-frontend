@@ -18,10 +18,8 @@ function Login() {
                 <input className="form__input" type="email" required name="email" id="email" />
                 <label className="form__label" for="password"> Пароль </label>
                 <input className="form__input" type="password" required name="password" id="password" />
-                <button className="form__button login__button" type="submit">Войти</button>
-
+                <button className="form__button login__entrance" type="submit">Войти</button>
             </Form>
-
 
             <p className="login__signup">Ещё не зарегистрированы?
                 <Link to="signup" className="login__link">Регистрация</Link>

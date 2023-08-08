@@ -21,7 +21,7 @@
     .promo {
         min-height: 570px;
         padding-bottom: 75px;
-        
+
     }
 }
 
@@ -104,7 +104,7 @@
 
 .promo__subtitle-text {
     font-size: 13px;
-    line-height: auto;
+    /* line-height: auto; */
     font-weight: normal;
     text-align: left;
     position: absolute;
@@ -135,45 +135,43 @@
     }
 }
 
+@media screen and (max-width: 290px) {
+    .promo__subtitle-text {
+        margin-top: 550px;
+    }
+}
 
-.promo__button {
+.promo__link {
     font-size: 12px;
-    font-weight: medium;
+    font-weight: normal;
     line-height: 16px;
     border: 1px solid #FFFFFF;
     border-radius: 3px;
     position: absolute;
-    left:70px;
+    left: 70px;
     bottom: 75px;
     color: #FFFFFF;
     background-color: #073042;
     padding: 9px 20px;
     text-decoration: none;
+    color: #FFFFFF;
 }
 
-.promo__button:hover {
+.promo__link:hover {
     opacity: 0.8;
 }
 
 @media screen and (max-width: 1170px) {
-    .promo__button {
-        margin: 0px auto -10px;
-         text-align: center;
-         left: 41.5%;
-         right: 41.5%;
-         bottom: 85px;
+    .promo__link {
+        margin: 850px auto 0px;
+        text-align: center;
+        position: relative;
+        left: 0;
+        /* left: 41.5%;
+         right: 41.5%; */
     }
 }
 
 @media screen and (max-width: 540px) {
-    .promo__button {
-        margin-bottom:-56px;
-         left: 29.5%;
-         right: 29.5%;
-    }
-}
-
-.promo__button-link {
-    text-decoration: none;
-    color: #FFFFFF;
+    .promo__link {}
 }

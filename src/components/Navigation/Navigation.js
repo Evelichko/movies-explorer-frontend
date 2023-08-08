@@ -5,7 +5,7 @@ import icon from '../../images/account-icon.svg';
 
 function Navigation ({isOpen, onClose}) {
     return (
-        <section className={'navigation' +  (isOpen?' navigation_open':'')}>
+        <div className={'navigation' +  (isOpen?' navigation_open':'')}>
             <div className="navigation__container-empty"></div>
             <div className="navigation__menu">
                 <nav className="navigation__links">
@@ -22,7 +22,7 @@ function Navigation ({isOpen, onClose}) {
                 </Link>
                 <button className='navigation__close' onClick={onClose} type='button' />
             </div>    
-        </section>
+        </div>
     )
 }
 

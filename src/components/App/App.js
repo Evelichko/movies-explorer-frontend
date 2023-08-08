@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Route, useHistory, Switch, Link } from 'react-router-dom';
 import './App.css';
 
-import NotFound from '../NotFound/NotFound.js';
+import PageNotFound from '../NotFound/NotFound.js';
 import Main from '../Main/Main.js';
 import Movies from '../Movies/Movies.js';
 import SavedMovies from '../SavedMovies/SavedMovies.js';
@@ -90,7 +90,7 @@ function App() {
                 </Route>
 
                 <Route exact={true} path='*'>
-                    <NotFound />
+                    <PageNotFound />
                 </Route>
             </Switch>
 

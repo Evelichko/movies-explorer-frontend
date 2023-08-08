@@ -15,7 +15,7 @@ function Portfolio() {
                         </a>
                     </li>
 
-                    <hr className="portfolio__line" />
+                    {/* <hr className="portfolio__line" /> */}
 
                     <li className='portfolio__projectLink'>
                         <a href='https://Evelichko.github.io/russian-travel/index.html' target='blank' className='portfolio__link'>
@@ -24,7 +24,7 @@ function Portfolio() {
                         </a>
                     </li>
 
-                    <hr className="portfolio__line" />
+                    {/* <hr className="portfolio__line" /> */}
 
                     <li className='portfolio__projectLink'>
                         <a href='https://github.com/Evelichko/react-mesto-api-full-gha' target='blank' className='portfolio__link'>

@@ -1,17 +1,16 @@
 import React from 'react';
-import FilterCheckBox from '../FilterCheckbox/FilterCheckbox';
-import './SearchForm.css';
+import CheckBox from '../Checkbox/Checkbox';
+import './SearchString.css';
 
-function SearchForm () {
-    return(
-        <section className='searchString'>
+function SearchForm() {
+    return (
+        <div className='searchString'>
             <form className='searchString__container'>
                 <input className='searchString__input' type='text' name='search' placeholder='Фильм' required></input>
                 <button className='searchString__button' type='submit'>Найти</button>
             </form>
-
-            <FilterCheckBox />
-        </section>
+            <CheckBox />
+        </div>
     )
 }
 
