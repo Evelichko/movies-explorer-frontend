@@ -15,11 +15,11 @@ import Navigation from "../Navigation/Navigation";
 
 function App() {
 
-    const history = useHistory();
+    // const history = useHistory();
 
     const [isNavigationMenuOpen, setIsNavigationMenuOpen] = useState(false);
 
-    function onClose() {
+    function closePopup() {
         setIsNavigationMenuOpen(false);
     }
 
@@ -45,7 +45,7 @@ function App() {
                     <Header className='header'>
                         <Navigation
                             isOpen={isNavigationMenuOpen}
-                            onClose={onClose} />
+                            onClose={closePopup} />
                         <button className='header__burger' type='button' onClick={() => setIsNavigationMenuOpen(true)} />
                     </Header>
 
@@ -58,7 +58,7 @@ function App() {
                     <Header className='header'>
                         <Navigation
                             isOpen={isNavigationMenuOpen}
-                            onClose={onClose} />
+                            onClose={closePopup} />
 
                         <button className='header__burger' onClick={() => setIsNavigationMenuOpen(true)} type='button' />
                     </Header>
@@ -73,7 +73,7 @@ function App() {
                     <Header className='header'>
                         <Navigation
                             isOpen={isNavigationMenuOpen}
-                            onClose={onClose} />
+                            onClose={closePopup} />
 
                         <button className='header__burger' onClick={() => setIsNavigationMenuOpen(true)} type='button' />
                     </Header>
