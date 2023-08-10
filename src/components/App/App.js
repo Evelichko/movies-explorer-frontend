@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Route, useHistory, Switch, Link } from 'react-router-dom';
+import { Route, useNavigate, Routes, Link } from 'react-router-dom';
 import './App.css';
 
-import PageNotFound from '../NotFound/NotFound.js';
+import PageNotFound from '../PageNotFound/PageNotFound.js';
 import Main from '../Main/Main.js';
 import Movies from '../Movies/Movies.js';
 import SavedMovies from '../SavedMovies/SavedMovies.js';
@@ -15,85 +15,83 @@ import Navigation from "../Navigation/Navigation";
 
 function App() {
 
-    // const history = useHistory();
+    const navigate = useNavigate();
 
-    const [isNavigationMenuOpen, setIsNavigationMenuOpen] = useState(false);
+    const [isNavigationMenuOpen, setNavigationMenuOpen] = useState(false);
 
     function closePopup() {
-        setIsNavigationMenuOpen(false);
+        setNavigationMenuOpen(false);
     }
 
 
     return (
         <div className="page">
-            <Switch>
-                <Route exact={true} path='/'>
-                    <Header className=" header header-front">
+            <Routes>
+                <Route exact path='/' element={<> 
+>                    <Header className="header header-front">
                         <div className="header__entrance">
-                            <Link to='/signup' className='header__entrance-link'>Регистрация</Link>
-                            <button className="header__entrance-button" onClick={() => history.push('./signin')} type='button'>Войти</button>
+                            <Link to='/signup' className='header__entrance-registry'>Регистрация</Link>
+                            <Link to='/signin' className='header__entrance-login'>Войти</Link>
                         </div>
                     </Header>
-
                     <Main />
-
                     <Footer />
+                </>}>
                 </Route>
 
-                <Route exact={true} path='/movies'>
-
+                <Route exact path='/movies' element={<>
                     <Header className='header'>
                         <Navigation
                             isOpen={isNavigationMenuOpen}
-                            onClose={closePopup} />
-                        <button className='header__burger' type='button' onClick={() => setIsNavigationMenuOpen(true)} />
+                            handleClosePopup={closePopup} />
+                        <button className='header__burger' type='button' onClick={() => setNavigationMenuOpen(true)} />
                     </Header>
-
                     <Movies />
-
                     <Footer />
+                </>}>
                 </Route>
 
-                <Route exact={true} path='/saved_movies'>
+                <Route exact path='/saved_movies' element={<>
                     <Header className='header'>
                         <Navigation
                             isOpen={isNavigationMenuOpen}
-                            onClose={closePopup} />
-
-                        <button className='header__burger' onClick={() => setIsNavigationMenuOpen(true)} type='button' />
+                            handleClosePopup={closePopup} />
+                        <button className='header__burger' onClick={() => setNavigationMenuOpen(true)} type='button' />
                     </Header>
-
                     <SavedMovies />
-
                     <Footer />
+                </>}>
+
                 </Route>
 
-                <Route exact={true} path='/profile'>
-
+                <Route exact path='/profile' element={<>
                     <Header className='header'>
                         <Navigation
                             isOpen={isNavigationMenuOpen}
-                            onClose={closePopup} />
+                            handleClosePopup={closePopup} />
 
-                        <button className='header__burger' onClick={() => setIsNavigationMenuOpen(true)} type='button' />
+                        <button className='header__burger' onClick={() => setNavigationMenuOpen(true)} type='button' />
                     </Header>
-
                     <Profile />
+                </>}>
+
                 </Route>
 
-                <Route path='/signup'>
+                <Route path='/signup' element={<>
                     <Register />
+                </>}>
                 </Route>
 
-                <Route path='/signin'>
+                <Route path='/signin' element={<>
                     <Login />
+                </>}>
                 </Route>
 
-                <Route exact={true} path='*'>
+                <Route exact path='*' element={<>
                     <PageNotFound />
+                </>}>
                 </Route>
-            </Switch>
-
+            </Routes>
         </div>
     )
 }

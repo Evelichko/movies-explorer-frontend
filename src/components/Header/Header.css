@@ -36,10 +36,9 @@
     }
 }
 
-.header__entrance-button {
+.header__entrance-login {
     width: 76px;
     height: 32px;
-    border: none;
     border-radius: 3px;
     background-color: #3DDC84;
     font-size: 12px;
@@ -47,10 +46,12 @@
     color: black;
     cursor: pointer;
     margin-right: 13px;
+    text-decoration: none;
+    padding: 10px 20px;
 }
 
 @media screen and (max-width: 540px) {
-    .header__entrance-button {
+    .header__entrance-login {
         font-size: 10px;
         width: 54px;
         height: 26px;
@@ -59,11 +60,11 @@
 }
 
 
-.header__entrance-button:hover {
+.header__entrance-login:hover {
     opacity: 0.8;
 }
 
-.header__entrance-link {
+.header__entrance-registry {
     color: white;
     text-decoration: none;
     padding-top: 7px;
@@ -73,13 +74,13 @@
 }
 
 @media screen and (max-width: 540px) {
-    .header__entrance-link {
+    .header__entrance-registry {
         font-size: 10px;
         margin-right: -15px;
     }
 }
 
-.header__entrance-link:hover {
+.header__entrance-registry:hover {
     opacity: 0.8;
 }
 

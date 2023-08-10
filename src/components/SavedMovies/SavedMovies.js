@@ -1,7 +1,7 @@
 import React from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import savedMovies from '../../utils/savedMovies.js';
-import SearchForm from '../SearchForm/SearchString.js';
+import SearchForm from '../SearchForm/SearchForm.js';
 
 
 function SavedMovies() {

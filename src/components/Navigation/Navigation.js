@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './Navigation.css'
 import icon from '../../images/account-icon.svg';
 
-function Navigation ({isOpen, onClose}) {
+function Navigation ({isOpen, handleClosePopup}) {
     return (
         <div className={'navigation' +  (isOpen?' navigation_open':'')}>
             <div className="navigation__container-empty"></div>
@@ -20,7 +20,7 @@ function Navigation ({isOpen, onClose}) {
                         <img className='navigation__account-image' src={icon} alt='значок профиля' />
                     </div>
                 </Link>
-                <button className='navigation__close' onClick={onClose} type='button' />
+                <button className='navigation__close' onClick={handleClosePopup} type='button' />
             </div>    
         </div>
     )

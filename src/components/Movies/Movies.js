@@ -2,7 +2,7 @@ import React from 'react';
 import './Movies.css';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import Preloader from '../Preloader/Preloader';
-import SearchForm from '../SearchForm/SearchString';
+import SearchForm from '../SearchForm/SearchForm';
 import movies from '../../utils/movies.js';
 
 function Movies() {
