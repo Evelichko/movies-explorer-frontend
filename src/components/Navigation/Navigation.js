@@ -8,10 +8,10 @@ function Navigation ({isOpen, handleClosePopup}) {
         <div className={'navigation' +  (isOpen?' navigation_open':'')}>
             <div className="navigation__container-empty"></div>
             <div className="navigation__menu">
-                <nav className="navigation__links">
-                    <Link to='/' className='navigation__link'>Главная</Link>
-                    <Link to='/movies' className='navigation__link'>Фильмы</Link>
-                    <Link to='saved_movies' className='navigation__link'>Сохранённые фильмы</Link>
+                <nav className="navigation__refs">
+                    <Link to='/' className='navigation__ref'>Главная</Link>
+                    <Link to='/movies' className='navigation__ref'>Фильмы</Link>
+                    <Link to='saved_movies' className='navigation__ref'>Сохранённые фильмы</Link>
                 </nav>
 
                 <Link className = 'navigation__account' to='/profile'>

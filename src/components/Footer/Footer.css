@@ -72,14 +72,14 @@
     color: #000000;
 }
 
-.footer__copyright-links {
+.footer__copyright-refs {
     width: 182px;
     display: flex;
     justify-content: space-between;
 }
 
 @media screen and (max-width: 540px) {
-    .footer__copyright-links {
+    .footer__copyright-refs {
         flex-direction: column;
         align-items: center;
         gap: 12px;
@@ -88,12 +88,12 @@
     }
 }
 
-.footer__copyright-link {
+.footer__copyright-ref {
     text-decoration: none;
     color: #000000;
 
 }
 
-.footer__copyright-link:hover {
+.footer__copyright-ref:hover {
     opacity: 0.8;
 }

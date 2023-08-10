@@ -8,9 +8,9 @@ function Footer () {
             <hr className="footer__line"/>
             <div className="footer__copyright">
                 <p className="footer__copyright-data">© 2023</p>
-                <div className="footer__copyright-links">
-                    <a className="footer__copyright-link" href="https://practicum.yandex.ru" target="blank">Яндекс.Практикум</a>
-                    <a className="footer__copyright-link" href="https://github.com/Evelichko" target="blank">Github</a>
+                <div className="footer__copyright-refs">
+                    <a className="footer__copyright-ref" href="https://practicum.yandex.ru" target="blank">Яндекс.Практикум</a>
+                    <a className="footer__copyright-ref" href="https://github.com/Evelichko" target="blank">Github</a>
                 </div>
             </div>
         </footer>     
