@@ -1,0 +1,35 @@
+.section-line {
+    color: #DADADA;
+    height: 0;
+    margin: 0 auto;
+}
+
+.section_techs {
+    margin: 0 70px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: normal;
+    padding-bottom: 23px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+}
+
+.section-title_techs {
+    margin-bottom: 0px;
+}
+
+@media screen and (max-width: 535px) {
+    .section-title {
+        font-size: 18px;
+        padding-bottom: 28px;
+    }
+}
+
+
+@media screen and (max-width: 535px) {
+    .section-title_techs {
+        margin-left: 0px;
+    }
+}

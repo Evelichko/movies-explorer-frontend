@@ -1,0 +1,79 @@
+.searchString {
+    margin-top: 65px;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-bottom: 0;
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .searchString {
+        margin: 75px 30px 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .searchString {
+        margin-top: 90px;
+        margin-left: 14px;
+        margin-right: 14px;
+    }
+}
+
+.searchString__container {
+    position: relative;
+}
+
+.searchString__input {
+    height: 33px;
+    color: #A0A0A0;
+    border: none;
+    width: 100%;
+    padding-bottom: 14px;
+    outline: none;
+    border-bottom: 1px solid #E8E8E8;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+@media screen and (max-width: 550px) {
+    .searchString__input {
+        font-size: 18px;
+        padding-bottom: 15px;
+        margin-top: -17px;
+    }
+}
+
+.searchString__button {
+    width: 58px;
+    height: 34px;
+    background-color: #3456F3;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 1px;
+    font-size: 11px;
+    position: absolute;
+    right: 0;
+    bottom: 13px;
+}
+
+@media screen and (max-width: 768px) {
+    .searchString__button {
+        bottom: 15px;
+        margin-right: -10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .searchString__button {
+        bottom: 15px;
+        margin-right: 5px;
+    }
+}
+
+.searchString__button:hover {
+    opacity: 0.8;
+}

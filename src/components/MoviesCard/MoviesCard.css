@@ -1,0 +1,132 @@
+.moviesCard {
+    width: 270px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+    .moviesCard {
+        width: 339px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .moviesCard {
+        width: 300px;
+    }
+}
+
+.moviesCard__card {
+    width: 270px;
+    height: 151px;
+    margin: 0 0 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .moviesCard__card {
+        width: 339px;
+        height: 190px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 545px) {
+    .moviesCard__card {
+        width: 300px;
+        height: 168px;
+    }
+}
+
+.moviesCard__description {
+    width: 100%;
+    margin-top: 0px;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 9px;
+}
+
+@media screen and (max-width: 768px) {
+    .moviesCard__description {
+        margin-left: 0px;
+
+    }
+}
+
+.moviesCard__title {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0 0 20px;
+    min-height: 32px;
+    max-width: 226px;
+}
+
+.moviesCard__duration {
+    font-size: 11px;
+    font-weight: normal;
+    color: #8B8B8B;
+    margin: 0;
+    padding: 0px 0 14px;
+    margin-left: 9px;
+}
+
+@media screen and (max-width: 768px) {
+    .moviesCard__duration {
+        margin-left: 0px;
+
+    }
+}
+
+.moviesCard__button-container {
+    width: 24px;
+    height: 24px;
+    background-color: #F9F9F9;
+    border-radius: 50%;
+    position: relative;
+    margin-top: -5px;
+
+}
+
+.moviesCard__button {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    margin-top: 8px;
+    margin-left: 7px;
+    border: none;
+    background-image: url('../../images/white-like-button.svg');
+    background-color: transparent;
+}
+
+
+.moviesCard__button-liked {
+    background-image: url('../../images/like-icon.svg');
+}
+
+.moviesCard__delete {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    background-color: inherit;
+    border: none;
+    background-image: url('../../images/delete-icon.svg');
+    margin-right: 12px;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.moviesCard__line {
+    margin-top: -10px;
+    width: 270px;
+}
+
+@media screen and (max-width: 768px) {
+    .moviesCard__line {
+        width: 339px;
+    }
+}

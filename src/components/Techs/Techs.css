@@ -1,0 +1,146 @@
+.techs {
+    margin: -13px 0px 0px;
+    background-color: #F5F5F5;
+    padding: 79px 70px 85px;
+}
+
+@media screen and (max-width: 768px) {
+    .techs {
+        padding: 65px 50px 78px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .techs {
+        margin: 15px 0 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: #FFF;
+    }
+}
+
+.techs__section-title {
+    color: black;
+}
+
+.techs__title {
+    width: 600px;
+    font-size: 50px;
+    font-weight: normal;
+    text-align: center;
+    margin: 90px auto 26px;
+    letter-spacing: -2px;
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .techs__title {
+        margin: 79px auto 22px;
+        letter-spacing: -2.5px;
+        max-width: 600px;
+
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .techs__title {
+        width: 220px;
+        font-size: 30px;
+        margin: 60px auto 24px;
+        padding: 0;
+        letter-spacing: -1px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .techs__line {
+        background-color: #202020;
+    }
+}
+
+.techs__description {
+    max-width: 460px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    text-align: center;
+    margin: 5px auto 80px;
+    letter-spacing: -0.5px;
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .techs__description {
+        font-size: 12px;
+        margin: 0 auto 61px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .techs__description {
+        width: 100%;
+        font-size: 11px;
+        margin: 0 0px 53px 0;
+        padding: 0;
+        line-height: 16px;
+    }
+}
+
+.techs__technologies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .techs__technologies {
+        margin: 0 10px;
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .techs__technologies {
+        margin: 0px auto 0;
+        justify-content: space-between;
+        text-align: center;
+        max-width: 178px;
+        width: 100%;
+    }
+}
+
+.techs__technology {
+    width: 90px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #E8E8E8;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 21px;
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .techs__technology {
+        width: 84px;
+        height: 37px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .techs__technology {
+margin-top: 0;
+margin-bottom: 0;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .techs__technology-text {
+        font-size: 12px;
+    }
+}

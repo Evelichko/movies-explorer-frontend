@@ -1,0 +1,132 @@
+.portfolio {
+    padding: 18px 70px 90px;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio {
+        padding: 0 50px 55px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .portfolio {
+        padding: 0 14px;
+    }
+}
+
+.portfolio__line {
+    color: #424242;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 540px) {
+    .portfolio__line {
+        margin-bottom: 10px;
+    }
+}
+
+.portfolio__title {
+    font-size: 18px;
+    font-weight: normal;
+    color: #8B8B8B;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 540px) {
+    .portfolio__title {
+        font-size: 14px;
+    }
+}
+
+.portfolio__projectLinks {
+    text-decoration: none;
+    padding: 0;
+    margin-top: 58px;
+}
+
+@media screen and (max-width: 540px) {
+    .portfolio__projectLinks {
+        margin-top: 30px;
+    }
+}
+
+.portfolio__projectLink {
+    color: white;
+    margin-top: 32px;
+    min-height: 50px;
+    max-width: 1140px;
+    width: 100%;
+}
+
+@media screen and (max-width: 540px) {
+    .portfolio__projectLink {
+        margin-top: 0px;
+    }
+}
+
+
+.portfolio__ref {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #E6E6E6;
+    padding-bottom: 20px;
+}
+
+.portfolio__ref-text {
+    font-size: 30px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    padding: 0;
+    margin: 0;
+}
+
+.portfolio__ref:hover {
+    cursor: pointer;
+    opacity: 0.8;
+
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio__ref-text {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .portfolio__ref-text {
+        font-size: 18px;
+        margin-top: 15px;
+        letter-spacing: -0.6px;
+
+    }
+}
+
+.portfolio__ref-icon {
+    width: 17px;
+    height: 17px;
+    object-fit: cover;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio__ref-icon {
+        margin-top: 10px;
+        margin-right: 7px;
+        width: 17px;
+        height: 17px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .portfolio__ref-icon {
+        width: 9px;
+        height: 9px;
+        margin-top: 20px;
+    }
+}
