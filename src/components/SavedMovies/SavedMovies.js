@@ -1,17 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
-import savedMovies from '../../utils/savedMovies.js';
 import SearchForm from '../SearchForm/SearchForm.js';
 
+function SavedMovies({
+    filmCards,
+    onRemoveFilm,
+    searchFilms,
+    getSavedFilms,
+    isLogged,
+    filteredSavedCard,
+    isSearched,
+    onSearched,
+    setFilterShort,
+    isFilterShort,
+    onSetMessage,
+    message,
+    isLikedFilm
 
-function SavedMovies() {
+}) {
+
+    useEffect(() => {
+        if (isLogged) {
+            onSearched(false);
+            onSetMessage('');
+            getSavedFilms();
+        }
+    }, [isLogged, isLikedFilm])
+
     return (
         <div>
 
-            <SearchForm />
+            <SearchForm searchFilms={searchFilms}
+                films={filmCards}
+                setFilterShort={setFilterShort}
+                isFilterShort={isFilterShort} />
+            <p className='movies__mеssage'>{message}</p>
 
-            <MoviesCardList className='moviesCard__delete' elements={savedMovies} />
-
+            {(!isSearched) ? (<MoviesCardList filmCards={filmCards} onRemoveFilm={onRemoveFilm} />)
+                : (<MoviesCardList filmCards={filteredSavedCard} onRemoveFilm={onRemoveFilm} />)}
         </div>
     );
 }

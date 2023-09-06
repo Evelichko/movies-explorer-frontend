@@ -203,6 +203,10 @@
     margin-top: 5px;
 }
 
+.navigation__theme_white{
+background-color: white;
+}
+
 .navigation__account-image {
     width: 19px;
     height: 19px;
@@ -214,7 +218,9 @@
 .navigation__close {
     display: none;
 }
-
+.navigation_white{
+    color: white;
+}
 @media screen and (max-width: 768px) {
     .navigation__close {
         display: block;

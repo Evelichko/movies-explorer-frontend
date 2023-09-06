@@ -90,6 +90,7 @@
 .register__link:hover {
     opacity: 0.8;
 }
+
 .register {
     margin-top: -4px;
 }
@@ -163,6 +164,17 @@
     opacity: 0.8;
 }
 
+.register__button:disabled {
+    background-color: #F8F8F8;
+    color: #C2C2C2;
+    cursor: default;
+}
+
+.register__button:disabled:hover {
+    opacity: 1;
+}
+
+
 @media screen and (max-width: 768px) {
     .register__button {
         margin-top: 123px;
@@ -191,3 +203,12 @@
         margin-top: -15px;
     }
 }
+
+  .register__error {
+    display: none;
+  }
+  .register__error_visible{
+    display: flex;
+    color:  #EE3465;
+
+  }

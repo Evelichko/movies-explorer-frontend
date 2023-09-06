@@ -103,7 +103,7 @@
 }
 
 
-.moviesCard__button-liked {
+.moviesCard__button_liked {
     background-image: url('../../images/like-icon.svg');
 }
 
