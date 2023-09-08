@@ -1,18 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
 import logo from '../../images/logo.svg';
 import './Register.css';
 import { useForm } from 'react-hook-form';
 
-function Register({ onSubmit, isError, message }) {
+function Register({ onSubmit, isFeedback, message }) {
 
   const { register, formState: { errors, isValid }, handleSubmit } = useForm({ mode: 'onChange' });
 
   function onRegister(data) {
     onSubmit(data);
   }
- 
   return (
     <section className="register">
       <Link to="/">
@@ -62,7 +60,6 @@ function Register({ onSubmit, isError, message }) {
 
           {...register('password', 
           { required: true, 
-          //  pattern: /([A-z])[1-9](?=.*[!@#$%^&*])/, 
           pattern: /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/,
           minLength:'8',
           maxLength:'30' })} />
@@ -74,7 +71,7 @@ function Register({ onSubmit, isError, message }) {
         {errors.password?.type === "maxLength" && "Слишком длинный пароль. Максимум 30 символов"}
         </span>
 
-        <span className={"register__error" + (isError ? ' register__error_visible' : '')}>{message}</span>
+        <span className={"register__error" + (isFeedback ? ' register__error_visible' : '')}>{message}</span>
         <button className="register__button" type="submit" disabled={!isValid}>Зарегистрироваться</button>
       </form>
 
