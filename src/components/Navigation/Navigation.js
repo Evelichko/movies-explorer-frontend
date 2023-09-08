@@ -12,7 +12,7 @@ function Navigation({ isOpen, onClose }) {
                 <div className="navigation__container-empty"></div>
                 <div className="navigation__menu ">
                     <nav className="navigation__refs">
-                        <Link to='/' className='navigation__ref navigation_white' onClick={onClose}>Главная</Link>
+                        <Link to='/' className='navigation__ref' onClick={onClose}>Главная</Link>
                         <Link to='/movies' className='navigation__ref navigation_white' onClick={onClose}>Фильмы</Link>
                         <Link to='/saved_movies' className='navigation__ref navigation_white' onClick={onClose}>Сохранённые фильмы</Link>
                     </nav>

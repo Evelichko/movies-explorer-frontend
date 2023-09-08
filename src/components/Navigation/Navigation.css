@@ -221,6 +221,14 @@ background-color: white;
 .navigation_white{
     color: white;
 }
+
+@media screen and (max-width: 768px) {
+    .navigation_white {
+        color: black;
+    }
+}
+
+
 @media screen and (max-width: 768px) {
     .navigation__close {
         display: block;
