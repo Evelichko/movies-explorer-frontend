@@ -24,7 +24,7 @@ function App() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const [activeUser, setActiveUser] = useState('');
+    const [activeUser, setActiveUser] = useState({});
     const [films, setFilms] = useState([]);
     const [isFilterShort, setFilterShort] = useState(false);
     const [filmCards, setFilmCards] = useState([]);
@@ -43,13 +43,6 @@ function App() {
         tokenCheck();
     }, []);
 
-    // useEffect(() => {
-    //     navigate(JSON.parse(window.sessionStorage.getItem('needRoute') || '{}'))
-    //     window.onbeforeunload = () => {
-    //         window.sessionStorage.setItem('needRoute', JSON.stringify(window.location.pathname))
-    //     }
-    // }, [])
-
     useEffect(() => {
         setMessage('');
     }, [navigate])
@@ -57,7 +50,7 @@ function App() {
     useEffect(() => {
 
         if (isLogged) {
-            // navigate('/movies');
+            tokenCheck();
             moviesApi.getAllFilms()
                 .then((films) => {
                     localStorage.setItem('films', JSON.stringify(films));
@@ -123,7 +116,7 @@ function App() {
         setMessage('');
         auth.handleRegister(data.email, data.password, data.name)
             .then((res) => {
-                onLogin(data);   
+                onLogin(data);
             })
             .catch((err) => {
                 setMessage('Что-то пошло не так');
@@ -137,9 +130,9 @@ function App() {
 
         auth.handleLogin(infoUser.email, infoUser.password)
             .then((data) => {
-setLogged(true);
-            navigate('/movies')
-    })
+                setLogged(true);
+                navigate('/movies')
+            })
             .catch((err) => {
                 setMessage('Что-то пошло не так');
                 setFeedback(true);
