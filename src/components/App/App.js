@@ -57,7 +57,7 @@ function App() {
     useEffect(() => {
 
         if (isLogged) {
-            navigate('/movies');
+            // navigate('/movies');
             moviesApi.getAllFilms()
                 .then((films) => {
                     localStorage.setItem('films', JSON.stringify(films));
@@ -108,6 +108,7 @@ function App() {
                 mainApi.getToken(token);
                 setActiveUser(user);
                 setLogged(true);
+                navigate(location.pathname);
 
             })
             .catch((err) => {
@@ -136,13 +137,15 @@ function App() {
 
         auth.handleLogin(infoUser.email, infoUser.password)
             .then((data) => {
-             getUser(data.token);
-            })
+setLogged(true);
+            navigate('/movies')
+    })
             .catch((err) => {
                 setMessage('Что-то пошло не так');
                 setFeedback(true);
                 console.log(err);
             })
+
     }
 
 
@@ -154,6 +157,8 @@ function App() {
                 setActiveUser(data);
                 setFeedback(true);
                 setMessage('Новые данные успешно сохранились');
+                setIsSubmitting(false);
+
             })
             .catch((err) => {
                 console.log(err);
@@ -288,7 +293,7 @@ function App() {
         <CurrentUserContext.Provider value={activeUser}>
             <div className="page">
                 <Routes>
-                    <Route exact path='/' element={
+                    <Route path='/' element={
                         <>
                             {!isLogged ? (<Header className="header header-front"><div className="header__entrance">
                                 <Link to='/signup' className='header__entrance-registry'>Регистрация</Link>

@@ -91,15 +91,18 @@
 
 .moviesCard__button {
     cursor: pointer;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     object-fit: cover;
     background-repeat: no-repeat;
-    margin-top: 8px;
+    margin-top: -4px;
     margin-left: 7px;
     border: none;
     background-image: url('../../images/white-like-button.svg');
-    background-color: transparent;
+    padding: 6px;
+    background-position: center;
+    background-color: #F9F9F9;
+    border-radius: 50%;
 }
 
 

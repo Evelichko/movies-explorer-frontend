@@ -16,10 +16,13 @@ function Profile({
         useFormWithValidation();
 
     const user = useContext(CurrentUserContext);
+   
 
     const isValidationPassed =
         !isValid ||
         (user.name === values.name && user.email === values.email);
+      
+
 
     function handleSubmit(e) {
         e.preventDefault();
