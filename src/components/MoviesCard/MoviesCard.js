@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './MoviesCard.css';
 import { useLocation } from 'react-router-dom';
 
@@ -10,10 +10,10 @@ function MoviesCard({
     movie,
     isLikedFilm,
     onRemoveFilm,
-    handleCardLike}) {
+    handleCardLike, 
+isLiked, setIsLiked}) {
 
     const location = useLocation();
-
 
     return (
         <li className='moviesCard' id='moviesCard'>
@@ -24,7 +24,7 @@ function MoviesCard({
                 <h2 className='moviesCard__title'>{nameRU}</h2>
 
                 {(location.pathname === '/movies') ? (
-                    <button className={`${isLikedFilm(movie) ? 'moviesCard__button moviesCard__button_liked' : 'moviesCard__button'}`}
+                    <button className={`${isLikedFilm(movie) ?  'moviesCard__button moviesCard__button_liked' : 'moviesCard__button'}`}
 
                         type='submit'
                         onClick={() => handleCardLike(movie)}>

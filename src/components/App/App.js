@@ -36,7 +36,9 @@ function App() {
     const [isLogged, setLogged] = useState(false);
     const [filteredSavedCard, setfilteredSavedCard] = useState([]);
     const [isSearched, setIsSearched] = useState(false);
-    const [isSubmitting, setIsSubmitting] = useState(false); //
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [isLiked, setIsLiked] = useState(false);
 
 
     useEffect(() => {
@@ -46,6 +48,8 @@ function App() {
     useEffect(() => {
         setMessage('');
     }, [navigate])
+
+
 
     useEffect(() => {
 
@@ -69,7 +73,7 @@ function App() {
             if (localStorage.getItem('filmCards')) {
                 const uploadedFilms = JSON.parse(localStorage.getItem('filmCards'));
                 setFilmCards(uploadedFilms.map((film) => ({
-                    movieId: film.id,
+                 movieId: film.id,
                     country: film.country,
                     nameEN: film.nameEN,
                     nameRU: film.nameRU,
@@ -150,14 +154,15 @@ function App() {
                 setActiveUser(data);
                 setFeedback(true);
                 setMessage('Новые данные успешно сохранились');
-                setIsSubmitting(false);
 
             })
             .catch((err) => {
                 console.log(err);
                 setFeedback(true);
-                setMessage('Обновить данные не получилось попробуйте позже')
+                setMessage('Обновить данные не получилось попробуйте позже');
+                setIsError(true);
             })
+            .finally(() => setIsSubmitting(false));
     }
 
     function checkFilmsFounded(films) {
@@ -212,7 +217,10 @@ function App() {
     function checkCardLiked(card) {
         const isLiked = savedCards.some((film) => {
             if (film.movieId === card.movieId) {
-                return film;
+                return true ;
+            }
+            else {
+                return false;
             }
         })
         return isLiked;
@@ -221,163 +229,193 @@ function App() {
     function likeAndSaveFilm(card) {
 
         mainApi.saveFilm(card)
-            .then((card) => {
-                getSavedFilms([card, ...savedCards]);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
-    function removeFilm(film) {
+            .then((res) => {
+                 card.id = res.message;
+                setSavedCards([card
+                    // (card) => ({
+                    //     id: card._id,
+                    //     movieId: card.movieId,
+                    //     country: card.country,
+                    //     image: card.image,
+                    //     description: card.description,
+                    //     duration: card.duration,
+                    //     nameEN: card.nameEN,
+                    //     nameRU: card.nameRU,
+                    //     year: card.year,
+                    //     trailerLink: card.trailerLink,
+                    //     director: card.director,
+                    //     thumbnail: card.thumbnail
+                    // })
+                    , ...savedCards]
+                );
 
-        savedCards.forEach((card) => {
-            if (card.movieId === film.movieId) {
-                mainApi.removeFilm(card, card.id)
-                    .then(() => {
-                        const updateSavedCards = savedCards.filter(item => item.id !== (card.id));
-                        setSavedCards(updateSavedCards);
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
-            }
+    })
+            .catch ((err) => {
+        console.log(err);
+    })
+}
+function removeFilm(film) {
+
+    savedCards.forEach((card) => {
+     if (card.movieId === film.movieId) {
+
+            mainApi.removeFilm(card, card.id)
+                .then(() => {
+            
+                    const updateSavedCards = savedCards.filter(item => item.id !== (card.id));
+                    setSavedCards(updateSavedCards);
+                    delete card['id'];
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+    })
+}
+
+function getSavedFilms() {
+
+    mainApi.getFilms()
+        .then((data) => {
+            localStorage.setItem('savedMovies', JSON.stringify(data));
+            setSavedCards(
+                data.map((savedMovie) => ({
+                    id: savedMovie._id,
+                    movieId: savedMovie.movieId,
+                    country: savedMovie.country,
+                    image: savedMovie.image,
+                    description: savedMovie.description,
+                    duration: savedMovie.duration,
+                    nameEN: savedMovie.nameEN,
+                    nameRU: savedMovie.nameRU,
+                    year: savedMovie.year,
+                    trailerLink: savedMovie.trailerLink,
+                    director: savedMovie.director,
+                    thumbnail: savedMovie.thumbnail
+                })
+                ))
         })
-    }
+        .catch((err) => {
+            console.log(err);
+        })
+}
 
-    function getSavedFilms() {
 
-        mainApi.getFilms()
-            .then((data) => {
-                setSavedCards(
-                    data.map((savedMovie) => ({
-                        id: savedMovie._id,
-                        movieId: savedMovie.movieId,
-                        country: savedMovie.country,
-                        image: savedMovie.image,
-                        description: savedMovie.description,
-                        duration: savedMovie.duration,
-                        nameEN: savedMovie.nameEN,
-                        nameRU: savedMovie.nameRU,
-                        year: savedMovie.year,
-                        trailerLink: savedMovie.trailerLink,
-                        director: savedMovie.director,
-                        thumbnail: savedMovie.thumbnail
-                    })
-                    ))
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
 
-    function onCloseBurger() {
-        setBurgerOpen(false);
-    }
+function onCloseBurger() {
+    setBurgerOpen(false);
+}
 
-    function onSignOut() {
-        localStorage.clear();
-        setFilmCards([]);
-        setfilteredSavedCard([]);
-        setLogged(false);
-        navigate('/')
-    }
+function onSignOut() {
+    localStorage.clear();
+    setFilmCards([]);
+    setfilteredSavedCard([]);
+    setLogged(false);
+    navigate('/')
+}
 
-    return (
-        <CurrentUserContext.Provider value={activeUser}>
-            <div className="page">
-                <Routes>
-                    <Route path='/' element={
-                        <>
-                            {!isLogged ? (<Header className="header header-front"><div className="header__entrance">
-                                <Link to='/signup' className='header__entrance-registry'>Регистрация</Link>
-                                <Link to='/signin' className='header__entrance-login'>Войти</Link> </div> </Header>) :
-                                (<Header className='header header__loggedIn' >
-                                    <Navigation
-                                        isOpen={isBurgerOpen}
-                                        onClose={onCloseBurger} />
-                                    <button className='header__burger header__burger_white' type='button' onClick={setBurgerOpen} />
-                                </Header>)}
-                            <Main />
-                            <Footer />
-                        </>
-                    }>
-                    </Route>
-
-                    <Route path='/movies'
-                        element={<ProtectedRoute isLogged={isLogged}>
-                            <Header className='header' >
+return (
+    <CurrentUserContext.Provider value={activeUser}>
+        <div className="page">
+            <Routes>
+                <Route path='/' element={
+                    <>
+                        {!isLogged ? (<Header className="header header-front"><div className="header__entrance">
+                            <Link to='/signup' className='header__entrance-registry'>Регистрация</Link>
+                            <Link to='/signin' className='header__entrance-login'>Войти</Link> </div> </Header>) :
+                            (<Header className='header header__loggedIn' >
                                 <Navigation
                                     isOpen={isBurgerOpen}
                                     onClose={onCloseBurger} />
-                                <button className='header__burger' type='button' onClick={setBurgerOpen} />
-                            </Header>
-                            <Movies
-                                filmCards={filmCards}
-                                searchFilms={searchFilms}
-                                films={films}
-                                setFilterShort={setFilterShort}
-                                isFilterShort={isFilterShort}
-                                isLikedFilm={checkCardLiked}
-                                handleCardLike={handleCardLike}
-                                message={message}
-                                isLoading={isLoading}
-                            />
-                            <Footer />
-                        </ProtectedRoute>
-                        } />
+                                <button className='header__burger header__burger_white' type='button' onClick={setBurgerOpen} />
+                            </Header>)}
+                        <Main />
+                        <Footer />
+                    </>
+                }>
+                </Route>
 
-                    <Route path='/saved_movies' element={
-                        <ProtectedRoute isLogged={isLogged} >
-                            <Header className='header'>
-                                <Navigation
-                                    isOpen={isBurgerOpen}
-                                    onClose={onCloseBurger} />
-                                <button className='header__burger' type='button' onClick={setBurgerOpen} />
-                            </Header>
-                            <SavedMovies
-                                onClick={setBurgerOpen}
-                                getSavedFilms={getSavedFilms}
-                                isSearched={isSearched}
-                                onSearched={setIsSearched}
-                                filmCards={savedCards}
-                                setFilterShort={setFilterShort}
-                                isFilterShort={isFilterShort}
-                                filteredSavedCard={filteredSavedCard}
-                                onRemoveFilm={removeFilm}
-                                searchFilms={searchFilms}
-                                isLikedFilm={checkCardLiked}
-                                message={message}
-                                onSetMessage={setMessage} />
-                            <Footer />
-                        </ProtectedRoute>
+                <Route path='/movies'
+                    element={<ProtectedRoute isLogged={isLogged}>
+                        <Header className='header' >
+                            <Navigation
+                                isOpen={isBurgerOpen}
+                                onClose={onCloseBurger} />
+                            <button className='header__burger' type='button' onClick={setBurgerOpen} />
+                        </Header>
+                        <Movies
+                            filmCards={filmCards}
+                            searchFilms={searchFilms}
+                            films={films}
+                            setFilterShort={setFilterShort}
+                            isFilterShort={isFilterShort}
+                            isLikedFilm={checkCardLiked}
+                            handleCardLike={handleCardLike}
+                            message={message}
+                            isLoading={isLoading}
+                            isLiked={isLiked}
+                            setIsLiked={setIsLiked}
+                        />
+                        <Footer />
+                    </ProtectedRoute>
                     } />
 
-                    <Route path='/profile' element={
-                        <ProtectedRoute isLogged={isLogged} >
-                            <Header className='header'>
-                                <Navigation
-                                    isOpen={isBurgerOpen}
-                                    onClose={onCloseBurger} />
-                                <button className='header__burger' type='button' onClick={setBurgerOpen} />
-                            </Header>
-                            <Profile
-                                onSignOut={onSignOut}
-                                onEditUserInfo={editUserInfo}
-                                message={message}
-                                onSetMessage={setMessage}
-                                isOk={feedbackMessage}
-                                isSubmitting={isSubmitting} />
-                        </ProtectedRoute>
-                    } />
+                <Route path='/saved_movies' element={
+                    <ProtectedRoute isLogged={isLogged} >
+                        <Header className='header'>
+                            <Navigation
+                                isOpen={isBurgerOpen}
+                                onClose={onCloseBurger} />
+                            <button className='header__burger' type='button' onClick={setBurgerOpen} />
+                        </Header>
+                        <SavedMovies
+                            onClick={setBurgerOpen}
+                            getSavedFilms={getSavedFilms}
+                            isSearched={isSearched}
+                            onSearched={setIsSearched}
+                            filmCards={savedCards}
+                            setFilterShort={setFilterShort}
+                            isFilterShort={isFilterShort}
+                            filteredSavedCard={filteredSavedCard}
+                            onRemoveFilm={removeFilm}
+                            searchFilms={searchFilms}
+                            isLikedFilm={checkCardLiked}
+                            message={message}
+                            onSetMessage={setMessage}
+                            isLogged={isLogged}
+                        />
+                        <Footer />
+                    </ProtectedRoute>
+                } />
 
-                    <Route path="/signup" element={<Register onSubmit={onRegister} isFeedback={feedbackMessage} message={message} />} />
-                    <Route path="/signin" element={<Login onSubmit={onLogin} isFeedback={feedbackMessage} message={message} />} />
-                    <Route exact path='*' element={<><PageNotFound /></>}></Route>
+                <Route path='/profile' element={
+                    <ProtectedRoute isLogged={isLogged} >
+                        <Header className='header'>
+                            <Navigation
+                                isOpen={isBurgerOpen}
+                                onClose={onCloseBurger} />
+                            <button className='header__burger' type='button' onClick={setBurgerOpen} />
+                        </Header>
+                        <Profile
+                            onSignOut={onSignOut}
+                            onEditUserInfo={editUserInfo}
+                            message={message}
+                            onSetMessage={setMessage}
+                            isOk={feedbackMessage}
+                            isSubmitting={isSubmitting}
+                            isError={isError}
+                            setIsError={setIsError} />
+                    </ProtectedRoute>
+                } />
 
-                </Routes>
-            </div>
-        </CurrentUserContext.Provider>
-    )
+                <Route path="/signup" element={<Register onSubmit={onRegister} isFeedback={feedbackMessage} message={message} />} />
+                <Route path="/signin" element={<Login onSubmit={onLogin} isFeedback={feedbackMessage} message={message} />} />
+                <Route exact path='*' element={<><PageNotFound /></>}></Route>
+
+            </Routes>
+        </div>
+    </CurrentUserContext.Provider>
+)
 }
 
 export default App;

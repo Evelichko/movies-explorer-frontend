@@ -10,7 +10,7 @@ function MoviesCardList({
     onRemoveFilm,
     className,
     isLoading,
-    handleCardLike
+    handleCardLike, isLiked, setIsLiked
 }) {
 
     const location = useLocation();
@@ -65,7 +65,9 @@ function MoviesCardList({
                             movie={card}
                             isLikedFilm={isLikedFilm}
                             onRemoveFilm={onRemoveFilm}
-                            handleCardLike={handleCardLike}>
+                            handleCardLike={handleCardLike}
+                            isLiked={isLiked}
+                            setIsLiked={setIsLiked}>
                         </MoviesCard>
                     ))) :
                     (filmCards.slice(0, isLikedFilm).map((card) => (

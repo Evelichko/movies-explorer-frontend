@@ -12,10 +12,10 @@ function Movies({
     setFilterShort,
     isFilterShort,
     isLikedFilm,
-    handleCardLike }) 
-    
+    handleCardLike, isLiked, setIsLiked }) 
     {
-    return (
+
+        return (
         <div>
 
             <SearchForm
@@ -33,7 +33,10 @@ function Movies({
                 filmCards={filmCards}
                 isLikedFilm={isLikedFilm}
                 isLoading={isLoading}
-                handleCardLike={handleCardLike} />
+                handleCardLike={handleCardLike}
+                isLiked={isLiked}
+                setIsLiked={setIsLiked}
+                />
         </div>
     );
 }

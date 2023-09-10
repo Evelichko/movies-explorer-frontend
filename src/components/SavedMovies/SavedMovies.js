@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import SearchForm from '../SearchForm/SearchForm.js';
 
@@ -18,6 +19,7 @@ function SavedMovies({
     isLikedFilm
 
 }) {
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (isLogged) {
@@ -25,7 +27,7 @@ function SavedMovies({
             onSetMessage('');
             getSavedFilms();
         }
-    }, [isLogged, isLikedFilm])
+    }, [isLogged])
 
     return (
         <div>
@@ -37,7 +39,9 @@ function SavedMovies({
             <p className='movies__mеssage'>{message}</p>
 
             {(!isSearched) ? (<MoviesCardList filmCards={filmCards} onRemoveFilm={onRemoveFilm} />)
-                : (<MoviesCardList filmCards={filteredSavedCard} onRemoveFilm={onRemoveFilm} />)}
+                : 
+                 (<MoviesCardList filmCards={filteredSavedCard} onRemoveFilm={onRemoveFilm} />)
+                }
         </div>
     );
 }
