@@ -1,11 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import React, {  useEffect } from 'react';
+import {  useLocation} from 'react-router-dom';
 import FilterCheckBox from '../FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-// import { ERROR_MESSAGES } from '../../utils/constants';
 
 
 function SearchForm({
@@ -16,46 +13,43 @@ function SearchForm({
 }) {
 
     const location = useLocation();
-    const { values, handleChange, errors, isValid } = useFormWithValidation();
+    const { values, handleChange, isValid, errors } = useFormWithValidation();
 
     function handleSubmit(e) {
         e.preventDefault();
         searchFilms(values.query, films)
         if (location.pathname === '/movies') {
-            localStorage.setItem('query', values.query)
+            localStorage.setItem('query', values.query);
         }
 
     }
 
     useEffect(() => {
-        if (
-          location.pathname === '/movies' &&
-          localStorage.getItem('query', values.query)
-        ) {
-          values.query = localStorage.getItem(
-            'query', values.query
-          );
+        if (location.pathname === '/movies' &&
+            localStorage.getItem('query')) {
+            values.query = localStorage.getItem('query');
+            document.getElementById("input").value = values.query;
         }
-      }, [location]);
+    }, []);
 
 
 
     return (
         <div className='searchString'>
             <form className='searchString__container' id="form" onSubmit={handleSubmit} noValidate>
-              
+
                 <input
                     className='searchString__input'
                     name='query'
                     type='text'
+                    id='input'
                     placeholder='Фильм'
-                    autoComplete='off'
                     value={values.query || ''}
                     onChange={handleChange}
                     required
                 />
-                <span className='searchString__input-error'>{errors.query ?? ''}</span>
-                <button className='searchString__button' type='submit' disabled={!isValid}>Найти</button>
+                <span className='searchString__input-error'>{errors.query}</span>
+                <button className='searchString__button' disabled={!isValid} type='submit'>Найти</button>
             </form>
 
             <FilterCheckBox
@@ -63,8 +57,8 @@ function SearchForm({
                 searchFilms={searchFilms}
                 films={films}
                 isFilterShort={isFilterShort}
-                text={values.query || ''}
-                 />
+            text={values.query || ''}
+            />
         </div>
     )
 }

@@ -227,6 +227,9 @@ function App() {
     }
 
     function likeAndSaveFilm(card) {
+        if(card.id){
+            delete card['id'];
+        }
 
         mainApi.saveFilm(card)
             .then((res) => {
@@ -265,6 +268,7 @@ function removeFilm(film) {
                     const updateSavedCards = savedCards.filter(item => item.id !== (card.id));
                     setSavedCards(updateSavedCards);
                     delete card['id'];
+
                 })
                 .catch((err) => {
                     console.log(err);
