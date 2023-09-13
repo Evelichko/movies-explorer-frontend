@@ -1,25 +1,43 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './MoviesCard.css';
+import { useLocation } from 'react-router-dom';
 
-function MoviesCard(props) {
+function MoviesCard({
+    image,
+    duration,
+    nameRU,
+    trailerLink, 
+    movie,
+    isLikedFilm,
+    onRemoveFilm,
+    handleCardLike, 
+isLiked, setIsLiked}) {
 
-    function handleSaveClick(evt) {
-        evt.preventDefault();
-        evt.target.classList.toggle('moviesCard__button-liked');
-    }
-
+    const location = useLocation();
 
     return (
-        <li className='moviesCard'>
-            <img className='moviesCard__card' src={props.image} alt={props.description} />
+        <li className='moviesCard' id='moviesCard'>
+            <a href={trailerLink} target="_blank" rel="noreferrer">
+                <img className='moviesCard__card' src={image} alt={nameRU} />
+            </a>
             <div className='moviesCard__description'>
-                <h2 className='moviesCard__title'>{props.description}</h2>
-                <div className='moviesCard__button-container'>
-                    <button className={props.className} onClick={handleSaveClick} type='submit'></button>
-                </div>
+                <h2 className='moviesCard__title'>{nameRU}</h2>
+
+                {(location.pathname === '/movies') ? (
+                    <button className={`${isLikedFilm(movie) ?  'moviesCard__button moviesCard__button_liked' : 'moviesCard__button'}`}
+
+                        type='submit'
+                        onClick={() => handleCardLike(movie)}>
+                    </button>
+                ) : (
+                    <button className='moviesCard__delete'
+                        type='submit'
+                        onClick={() => onRemoveFilm(movie)} />
+                )}
             </div>
             <hr className='moviesCard__line'></hr>
-            <p className='moviesCard__duration'>{props.duration}</p>
+            <p className='moviesCard__duration'> {`${Math.trunc(duration / 60) > 0 ? `${Math.trunc(duration / 60)}ч` :
+            ''} ${duration % 60}м`}</p>
         </li>
     );
 }

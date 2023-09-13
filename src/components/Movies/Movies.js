@@ -1,25 +1,42 @@
-import React from 'react';
 import './Movies.css';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import Preloader from '../Preloader/Preloader';
 import SearchForm from '../SearchForm/SearchForm';
-import movies from '../../utils/movies.js';
 
-function Movies() {
+function Movies({
+    filmCards,
+    searchFilms,
+    message,
+    films,
+    isLoading,
+    setFilterShort,
+    isFilterShort,
+    isLikedFilm,
+    handleCardLike, isLiked, setIsLiked }) 
+    {
 
-    return (
+        return (
         <div>
 
-            <SearchForm />
+            <SearchForm
+                searchFilms={searchFilms}
+                setFilterShort={setFilterShort}
+                isFilterShort={isFilterShort}
+                filmCards={filmCards}
+                films={films}/>
+                
+            <p className='movies__mеssage'>{message}</p>
 
-            <Preloader />
+            <Preloader isLoading={isLoading} />
 
-            <MoviesCardList className={'moviesCard__button'} elements={movies} />
-
-            <div className='movies'>
-                <button className='movies__button' type='button'>Ещё</button>
-            </div>
-
+            <MoviesCardList
+                filmCards={filmCards}
+                isLikedFilm={isLikedFilm}
+                isLoading={isLoading}
+                handleCardLike={handleCardLike}
+                isLiked={isLiked}
+                setIsLiked={setIsLiked}
+                />
         </div>
     );
 }

@@ -6,6 +6,7 @@
 
 Макет выполнен по файлу light-1.fig
 
-
+ссылка на проект : https://evelichko.movies.nomoredomains.work/movies
+ссылка на ПР: https://github.com/Evelichko/movies-explorer-frontend/pull/2
 
 

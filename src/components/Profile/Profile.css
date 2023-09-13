@@ -181,9 +181,14 @@
     }
 }
 
-.profile__edit-form-button:hover {
+/* .profile__edit-button:hover {
     opacity: 0.8;
+} */
+
+.profile__edit-button:disabled {
+color: #A0A0A0;
 }
+
 
 .profile__exit-button {
     font-size: 13px;
@@ -207,3 +212,25 @@
 .profile__exit-button:hover {
     opacity: 0.8;
 }
+
+.profile__error {
+    color: #EE3465;
+    font-size: 10px;
+    font-weight: normal;
+    margin-top: -8px;
+    margin-bottom: 10px; 
+}
+
+
+.profile__message {
+    display: none;
+    text-align: center;
+    color:  green;
+    font-size: 10px;
+    max-width: 310px;
+
+ }
+  .profile__message_visible{
+    display: flex;
+
+  }
