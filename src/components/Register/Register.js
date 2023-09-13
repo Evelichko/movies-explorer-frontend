@@ -8,8 +8,8 @@ function Register({ onSubmit, isFeedback, message }) {
 
   const { register, formState: { errors, isValid }, handleSubmit } = useForm({ mode: 'onChange' });
 
-  function onRegister(data) {
-    onSubmit(data);
+  function onRegister(values) {
+    onSubmit(values);
   }
   return (
     <section className="register">
@@ -33,7 +33,7 @@ function Register({ onSubmit, isFeedback, message }) {
           })} />
 
         <span className='register__input-error'>
-          {errors.name?.type === "required" && "Пожалуйста, заполните поле"}
+          {errors.name?.type === "required" && "Это поле нужно обязательно заполнить"}
           {errors.name?.type === "pattern" && "Поле содержит недопустимые символы"}
           {errors.name?.type === "minLength" && "Минимальное  значение должно быть не меньше 2-х символов"}
           {errors.name?.type === "maxLength" && "Достигнута максимальная длина поля"}
@@ -48,8 +48,8 @@ function Register({ onSubmit, isFeedback, message }) {
             pattern: /([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,})\.([A-z]{2,8})/
           })} />
         <span className='register__input-error'>
-          {errors.email?.type === "required" && "Пожалуйста, заполните поле"}
-          {errors.email?.type === "pattern" && "Поле содержит недопустимые символы"}
+          {errors.email?.type === "required" && "Это поле нужно обязательно заполнить"}
+          {errors.email?.type === "pattern" && "Адрес почты должен быть валидным"}
         </span>
 
         <label className="register__label" for="password"> Пароль </label>
@@ -58,17 +58,19 @@ function Register({ onSubmit, isFeedback, message }) {
           className='register__input'
           type='password'
 
-          {...register('password', 
-          { required: true, 
-          pattern: /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/,
-          minLength:'8',
-          maxLength:'30' })} />
+          {...register('password',
+            {
+              required: true,
+              pattern: /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/,
+              minLength: '8',
+              maxLength: '30'
+            })} />
 
         <span className='register__input-error'>
-        {errors.password?.type === "required" && "Пожалуйста, заполните поле"} 
-        {errors.password?.type === "minLength" && "Слишком короткий пароль. Минимум 8 символа"}
-         {errors.password?.type === "pattern" && "Пароль должен содержать латинские цифры, символы и буквы разного регистра"} 
-        {errors.password?.type === "maxLength" && "Слишком длинный пароль. Максимум 30 символов"}
+          {errors.password?.type === "required" && "Это поле нужно обязательно заполнить"}
+          {errors.password?.type === "minLength" && "Слишком короткий пароль. Минимум 8 символа"}
+          {errors.password?.type === "pattern" && "Пароль должен содержать латинские цифры, символы и буквы разного регистра"}
+          {errors.password?.type === "maxLength" && "Слишком длинный пароль. Максимум 30 символов"}
         </span>
 
         <span className={"register__error" + (isFeedback ? ' register__error_visible' : '')}>{message}</span>

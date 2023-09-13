@@ -1,26 +1,18 @@
 import React from 'react';
-import { useEffect } from 'react';
 import logo from '../../images/logo.svg';
 import { Link } from 'react-router-dom'
 import './Login.css';
-import { useFormWithValidation } from '../../hooks/useFormWithValidation';
+import { useForm } from 'react-hook-form';
 function Login({
   onSubmit,
   isFeedback,
   message }) {
 
-  const { values, handleChange, errors, resetForm, isValid } =
-    useFormWithValidation();
+  const { register, formState: { errors, isValid }, handleSubmit } = useForm({ mode: 'onChange' });
 
-  useEffect(() => {
-    resetForm();
-  }, [resetForm]);
-
-  function handleSubmit(e) {
-    e.preventDefault();
+  function onLogin(values) {
     onSubmit(values);
-  };
-
+  }
 
   return (
     <section className="login">
@@ -30,30 +22,42 @@ function Login({
 
       <h1 className="login__welcomeMessage">Рады видеть!</h1>
 
-      <form className="login__form" onSubmit={handleSubmit}>
+      <form className="login__form" onSubmit={handleSubmit(onLogin)}>
 
         <label className="login__label" htmlFor='email'>E-mail
           <input
             name='email'
             className='login__input'
-            onChange={handleChange}
-            value={values.email ?? ''}
-            type='email'
-            required
-          />
-          <span className='login__input-error'>{errors.email ?? ''}</span>
+            {...register('email', {
+              required: true,
+              pattern: /([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,})\.([A-z]{2,8})/
+            })} />
+          <span className='login__input-error'>
+            {errors.email?.type === "required" && "Это поле нужно обязательно заполнить"}
+            {errors.email?.type === "pattern" && "Адрес почты должен быть валидным"}
+          </span>
         </label>
 
         <label className="login__label" htmlFor="password">Пароль
           <input
             name='password'
             className='login__input'
-            onChange={handleChange}
-            value={values.password ?? ''}
             type='password'
-            required
-          />
-          <span className='login__input-error'>{errors.password ?? ''}</span></label>
+
+            {...register('password',
+              {
+                required: true,
+                pattern: /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/,
+                minLength: '8',
+                maxLength: '30'
+              })} />
+
+          <span className='login__input-error'>{errors.password?.type === "required" && "Это поле нужно обязательно заполнить"}
+            {errors.password?.type === "minLength" && "Слишком короткий пароль. Минимум 8 символа"}
+            {errors.password?.type === "pattern" && "Пароль должен содержать латинские цифры, символы и буквы разного регистра"}
+            {errors.password?.type === "maxLength" && "Слишком длинный пароль. Максимум 30 символов"}
+          </span>
+        </label>
 
         <span className={"login__error" + (isFeedback ? ' login__error_visible' : '')}>{message}</span>
 
